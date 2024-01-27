@@ -4,3 +4,4 @@ __pycache__
 build
 .ruff_cache
 images
+.pytest_cache
