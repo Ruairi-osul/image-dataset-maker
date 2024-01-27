@@ -1,4 +1,10 @@
-from image_dataset_maker import search_images, download_images, verify_images, resize_images, get_image_files
+from image_dataset_maker import (
+    search_images,
+    download_images,
+    verify_images,
+    resize_images,
+    get_image_files,
+)
 from pathlib import Path
 
 dest_dir = Path("images")

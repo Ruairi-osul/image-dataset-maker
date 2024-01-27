@@ -42,14 +42,15 @@ def resize_image(
 
 
 def _resize_func(image_path, size, resampling, dest_dir):
-    """Helper function for parallel processing.
-    
-    """
+    """Helper function for parallel processing."""
     if dest_dir is not None:
         dest_path = dest_dir / image_path.name
     else:
         dest_path = None
-    return resize_image(image_path, size=size, resampling=resampling, dest_path=dest_path)
+    return resize_image(
+        image_path, size=size, resampling=resampling, dest_path=dest_path
+    )
+
 
 def resize_images(
     image_paths: list[Path],
@@ -75,9 +76,9 @@ def resize_images(
         max_workers = os.cpu_count()
 
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
-        func = partial(_resize_func, size=size, resampling=resampling, dest_dir=dest_dir)
+        func = partial(
+            _resize_func, size=size, resampling=resampling, dest_dir=dest_dir
+        )
         resized_images = list(executor.map(func, image_paths))
 
     return resized_images
-
-

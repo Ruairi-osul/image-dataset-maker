@@ -64,6 +64,3 @@ def verify_images(
         ]
 
     return valid_image_paths
-
-
-

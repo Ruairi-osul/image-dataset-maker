@@ -45,5 +45,3 @@ def search_images(
         urls = [result["image"] for result in ddgs_images_gen]
 
     return urls
-
-
