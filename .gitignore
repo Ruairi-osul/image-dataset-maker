@@ -1,0 +1,6 @@
+*.egg*
+.env
+__pycache__
+build
+.ruff_cache
+images
