@@ -1,0 +1,5 @@
+Pillow
+duckduckgo_search
+requests
+black
+pytest

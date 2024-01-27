@@ -23,5 +23,5 @@
 		}
 	},
 	"postCreateCommand": "pip install --upgrade pip",
-	"postStartCommand": "pip install ."
+	"postStartCommand": "pip install . && pip install -r requirements-dev.txt"
 }
