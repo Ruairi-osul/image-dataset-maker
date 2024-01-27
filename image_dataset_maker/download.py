@@ -6,7 +6,7 @@ from functools import partial
 from urllib.parse import urlparse, unquote
 
 
-def _url_to_image_filename(url) -> str:
+def _url_to_image_filename(url: str) -> str:
     """
     Get the filename from a URL of an image.
 
@@ -16,9 +16,11 @@ def _url_to_image_filename(url) -> str:
     Returns:
         str: The filename of the image.
     """
+    url = url.strip()
     parsed_url = urlparse(url)
     base_filename = unquote(parsed_url.path.split("/")[-1])
-    filename = base_filename.split("?")[0]
+    filename = base_filename.split("?")[0] if "?" in base_filename else base_filename
+
     return filename
 
 
@@ -104,6 +106,3 @@ def download_images(
         downloaded_paths = [future.result() for future in as_completed(futures)]
 
     return downloaded_paths
-
-
-
